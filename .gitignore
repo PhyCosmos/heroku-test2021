@@ -13,3 +13,5 @@ README.md
 venv/
 pyvenv.cfg
 .env
+
+chromedriver.exe

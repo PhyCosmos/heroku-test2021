@@ -4,6 +4,5 @@ from clipper.tests import get_title
 from clipper.models import Site
 # Create your views here.
 def index(request):
-    site_title = get_title()
-    
+    site_title = get_title()    
     return HttpResponse(site_title)

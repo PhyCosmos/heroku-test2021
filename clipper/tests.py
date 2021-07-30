@@ -12,7 +12,7 @@ def get_title():
     chrome_options = webdriver.chrome.options.Options()
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--no-sandbox")
-    chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+    # chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
     
 
     with webdriver.Chrome(executable_path=os.environ.get('CHROMEDRIVER_PATH'), options=chrome_options) as browser:

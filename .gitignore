@@ -15,3 +15,4 @@ pyvenv.cfg
 .env
 
 chromedriver.exe
+local_settings.py

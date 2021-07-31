@@ -14,7 +14,7 @@ import os
 from pathlib import Path
 from os.path import join
 from dotenv import load_dotenv
-
+import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -28,9 +28,9 @@ load_dotenv(dotenv_path)
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-+5#6u^(v^9ihpv2@2$0t+d+pdmmr349by7f_nxkbmt)4co%n=1')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
 
 # Application definition
@@ -84,8 +84,12 @@ WSGI_APPLICATION = 'conf.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'djangogirls',
+        'USER': 'name',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -134,7 +138,6 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Heroku: Update database configuration from $DATABASE_URL. 
-import dj_database_url 
 db_from_env = dj_database_url.config(conn_max_age=500) 
 DATABASES['default'].update(db_from_env)
 
